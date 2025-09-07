@@ -72,7 +72,7 @@ Cryptographic receipts (hash + signature) allow clients to verify answer provena
 
 ---
 
-## 📁 Repo Layout
+## 📁 Project Layout
 
 - `contract.py` — ARC-4 smart contract logic for the DAISY protocol (escrow, settlement, events).
 - `deploy.py` — Deployment utilities: compile/deploy app + ASA; output IDs and addresses.
