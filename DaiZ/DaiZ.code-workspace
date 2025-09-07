@@ -5,28 +5,66 @@
       "name": "ROOT"
     },
     {
-      "path": "projects/DaiZ"
+      "path": "./projects/DaiZ-contracts"
+    },
+    {
+      "path": "./projects/DaiZ-frontend"
     }
   ],
   "settings": {
     "files.exclude": {
       "projects/": true
     },
-    "jest.disabledWorkspaceFolders": [
-      "ROOT",
-      "projects"
-    ]
+    "jest.disabledWorkspaceFolders": ["ROOT", "projects"],
+    "dotenv.enableAutocloaking": false
   },
   "extensions": {
-    "recommendations": [
-      "joshx.workspace-terminals"
-    ]
+    "recommendations": ["joshx.workspace-terminals"]
   },
+  
   "tasks": {
     "version": "2.0.0",
-    "tasks": []
+    "tasks": [
+      {
+        "label": "Build artifacts (+ LocalNet)",
+        "command": "algokit",
+        "args": ["project", "run", "build"],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "dependsOn": "Start AlgoKit LocalNet",
+        "problemMatcher": []
+      },
+      {
+        "label": "Start AlgoKit LocalNet",
+        "command": "algokit",
+        "args": ["localnet", "start"],
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      }
+    ]
   },
   "launch": {
-    "configurations": []
+    "configurations": [],
+    "compounds": [
+      {
+        "preLaunchTask": "Build artifacts (+ LocalNet)",
+        "name": "Run Frontend (+ LocalNet and Smart Contract)",
+        "configurations": [
+          {
+            "name": "Deploy contracts",
+            "folder": "DaiZ-contracts"
+          },
+          { "name": "Run dApp", "folder": "DaiZ-frontend" }
+        ],
+        "presentation": {
+          "hidden": false,
+          "group": "0. Run workspace"
+        }
+      }
+    ]
   }
-}
+  }

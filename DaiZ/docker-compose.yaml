@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  localnet:
+    image: algorand/stable:latest
+    container_name: localnet
+    ports:
+      - "4001:4001"  # Algod
+      - "4002:4002"  # Indexer
+    volumes:
+      - ./node-data:/root/node-data
+
+  backend:
+    build:
+      context: ./DaiZ-backend
+      dockerfile: Dockerfile
+    container_name: daiz-backend
+    ports:
+      - "4000:4000"
+    depends_on:
+      - localnet
+    env_file:
+      - ./DaiZ-backend/.env
+    volumes:
+      - ./DaiZ-backend:/app
+      - ./DaiZ-contracts:/app/contracts
+
+  frontend:
+    build:
+      context: ./DaiZ-frontend
+      dockerfile: Dockerfile
+    container_name: daiz-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./DaiZ-frontend:/app

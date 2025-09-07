@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Daisy-inspired dark theme: soft charcoal base, petal yellow primary, rich maroon secondary */
+    --background: 222 30% 7%;
+    --foreground: 0 0% 98%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 215 12% 70%;
+    --popover: 222 30% 9%;
+    --popover-foreground: 0 0% 98%;
+    --card: 222 30% 9%;
+    --card-foreground: 0 0% 98%;
+    --border: 220 18% 18%;
+    --input: 220 18% 18%;
+    --primary: 47 100% 61%; /* #FFD23A */
+    --primary-foreground: 47 100% 12%;
+    --secondary: 356 81% 13%; /* #3B060A */
+    --secondary-foreground: 0 0% 98%;
+    --accent: 356 60% 22%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 85% 58%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 47 95% 60%;
+    --radius: 1rem;
+  }
+
+  .light {
+    /* Light theme tuned for readability with daisy palette */
+    --background: 0 0% 99%;
+    --foreground: 222 30% 14%;
+    --muted: 48 60% 96%; /* pale yellow wash */
+    --muted-foreground: 220 15% 40%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 14%;
+    --border: 210 20% 92%;
+    --input: 210 20% 92%;
+    --primary: 48 96% 52%;
+    --primary-foreground: 50 70% 12%;
+    --secondary: 356 40% 92%;
+    --secondary-foreground: 222 30% 14%;
+    --accent: 356 80% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 48 96% 52%;
+  }
+
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased text-2xl; font-family: 'Sofia Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+}
+
+/* Subtle glassmorphism utility */
+.glass {
+  @apply bg-white/5 dark:bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+}
