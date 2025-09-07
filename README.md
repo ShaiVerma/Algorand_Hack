@@ -1,6 +1,9 @@
 # D.A.I.S.Y. 
 **D**ecentralized **A**rtificial **I**ntelligence **S**earch For **Y**ou
 
+**Demo**:
+https://www.loom.com/share/bdb90fd49d7c45969368118001563eda?sid=f3fd39ac-68ab-48c5-bc12-cfd8215c4faf
+
 Today, most online activity — search, communication, and even creative work — is handled by centralized platforms like Google, OpenAI, or Meta. While these companies offer powerful services, relying on them comes with serious **data privacy risks**:
 
 - **Data Collection & Profiling**  
