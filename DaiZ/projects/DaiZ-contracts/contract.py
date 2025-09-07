@@ -9,16 +9,18 @@ from algopy import (
     arc4,
     itxn,
     gtxn,
+    log,
+    op,
 )
 
 
-# ABI-compatible struct for queries
-class Query(arc4.Struct):
-    submitter: arc4.Address
-    query_text: arc4.String
-    provider: arc4.Address
-    response_text: arc4.String
-    is_answered: arc4.Bool
+# # ABI-compatible struct for queries
+# class Query(arc4.Struct):
+#     submitter: arc4.Address
+#     query_text: arc4.String
+#     provider: arc4.Address
+#     response_text: arc4.String
+#     is_answered: arc4.Bool
 
 
 class DecentralizedAiContract(ARC4Contract):
@@ -26,8 +28,7 @@ class DecentralizedAiContract(ARC4Contract):
         self.governor = Account()              # contract governor (manages config + opt-in)
         self.token = Asset(0)                  # ASA used for payments (DAISY token)
         self.query_fee = UInt64(0)             # fee required to post a query
-        self.next_query_id = UInt64(1)         # incremental query counter
-        self.queries = BoxMap(UInt64, Query, key_prefix="Q")  # storage for queries
+        self.next_query_id = UInt64(1)         # incremental query counter  
 
     # Initialize contract with DAISY token ASA ID + posting fee
     @arc4.abimethod(create="require")

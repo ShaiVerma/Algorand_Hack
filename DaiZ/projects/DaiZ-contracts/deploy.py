@@ -22,6 +22,10 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 def get_deployer(algorand: AlgorandClient):
     """
     AlgoKit Utils v3:

@@ -3,8 +3,6 @@ import os
 from algosdk import transaction, mnemonic, account
 from algosdk.v2client import algod
 from dotenv import load_dotenv
-
-# Load variables from .env file into process environment
 load_dotenv()
 
 # ---- Network config (env or defaults for LocalNet) ----
@@ -34,7 +32,7 @@ def main():
     try:
         DEPLOYER_MNEMONIC = os.environ["DEPLOYER_MNEMONIC"]
         USER_MNEMONIC = os.environ["USER_MNEMONIC"]
-        TOKEN_ID = int(os.environ["TOKEN_ID"])
+        TOKEN_ID = int(os.environ["DAISY_TOKEN_ID"])
     except KeyError as e:
         missing = e.args[0]
         raise SystemExit(
@@ -44,7 +42,7 @@ def main():
         )
 
     AMOUNT = int(os.environ.get("AMOUNT", "2000"))
-    FUND_ALGOS = float(os.environ.get("FUND_ALGOS", "1000"))
+    FUND_ALGOS = float(os.environ.get("FUND_ALGOS", "0"))
 
     client = algod.AlgodClient(ALGOD_TOKEN, ALGOD_ADDR)
 

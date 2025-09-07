@@ -1,66 +1,66 @@
 #pragma version 10
 #pragma typetrack false
 
-// contract.DecentralizedAiContract.__algopy_entrypoint_with_init() -> uint64:
+// contract_2.DecentralizedAiContract.__algopy_entrypoint_with_init() -> uint64:
 main:
-    intcblock 0 1 4 544
-    bytecblock "governor" "token" "query_fee" "next_query_id" 0x00 "Q" 0x151f7c75
+    intcblock 0 1 4
+    bytecblock "governor" "token" "query_fee" "next_query_id" "Q" 0x151f7c75
     txn ApplicationID
     bnz main_after_if_else@2
-    // DaiZ-contracts/contract.py:26
+    // contract_2.py:16
     // self.governor = Account()              # contract governor (manages config + opt-in)
     bytec_0 // "governor"
     global ZeroAddress
     app_global_put
-    // DaiZ-contracts/contract.py:27
+    // contract_2.py:17
     // self.token = Asset(0)                  # ASA used for payments (DAISY token)
     bytec_1 // "token"
     intc_0 // 0
     app_global_put
-    // DaiZ-contracts/contract.py:28
+    // contract_2.py:18
     // self.query_fee = UInt64(0)             # fee required to post a query
     bytec_2 // "query_fee"
     intc_0 // 0
     app_global_put
-    // DaiZ-contracts/contract.py:29
+    // contract_2.py:19
     // self.next_query_id = UInt64(1)         # incremental query counter
     bytec_3 // "next_query_id"
     intc_1 // 1
     app_global_put
 
 main_after_if_else@2:
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txn NumAppArgs
     bz main_after_if_else@13
-    pushbytess 0x6eb260b3 0x08a956f7 0xfc4b88b7 0x3e2f2e38 0x1050b450 0xcf5bd9c5 0x3c30605b 0x419d7ec5 // method "create(asset,uint64)void", method "set_governor(account)void", method "set_fee(uint64)void", method "opt_in_to_token()void", method "withdraw_asset(uint64)void", method "post_query(string,axfer)uint64", method "submit_response(uint64,string)void", method "get_query(uint64)(address,string,address,string,bool)"
+    pushbytess 0x6eb260b3 0x08a956f7 0xfc4b88b7 0x3e2f2e38 0x1050b450 0xcf5bd9c5 0x3c30605b 0x215d4563 // method "create(asset,uint64)void", method "set_governor(account)void", method "set_fee(uint64)void", method "opt_in_to_token()void", method "withdraw_asset(uint64)void", method "post_query(string,axfer)uint64", method "submit_response(uint64,string)void", method "read_prompt(uint64)string"
     txna ApplicationArgs 0
-    match main_create_route@5 main_set_governor_route@6 main_set_fee_route@7 main_opt_in_to_token_route@8 main_withdraw_asset_route@9 main_post_query_route@10 main_submit_response_route@11 main_get_query_route@12
+    match main_create_route@5 main_set_governor_route@6 main_set_fee_route@7 main_opt_in_to_token_route@8 main_withdraw_asset_route@9 main_post_query_route@10 main_submit_response_route@11 main_read_prompt_route@12
 
 main_after_if_else@13:
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     intc_0 // 0
     return
 
-main_get_query_route@12:
-    // DaiZ-contracts/contract.py:120-121
-    // # Read-only method: returns a query by ID
+main_read_prompt_route@12:
+    // contract_2.py:107-108
+    // # Read-only method: returns the prompt for a given query id (for providers to fetch)
     // @arc4.abimethod(readonly=True)
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
-    // DaiZ-contracts/contract.py:120-121
-    // # Read-only method: returns a query by ID
+    // contract_2.py:107-108
+    // # Read-only method: returns the prompt for a given query id (for providers to fetch)
     // @arc4.abimethod(readonly=True)
-    callsub get_query
-    bytec 6 // 0x151f7c75
+    callsub read_prompt
+    bytec 5 // 0x151f7c75
     swap
     concat
     log
@@ -68,36 +68,39 @@ main_get_query_route@12:
     return
 
 main_submit_response_route@11:
-    // DaiZ-contracts/contract.py:101-102
+    // contract_2.py:87-89
     // # Provider submits a response and gets rewarded in DAISY
+    // # Reads (guards on) the prompt box and deletes it immediately to reclaim MBR
     // @arc4.abimethod
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txna ApplicationArgs 2
-    // DaiZ-contracts/contract.py:101-102
+    // contract_2.py:87-89
     // # Provider submits a response and gets rewarded in DAISY
+    // # Reads (guards on) the prompt box and deletes it immediately to reclaim MBR
     // @arc4.abimethod
     callsub submit_response
     intc_1 // 1
     return
 
 main_post_query_route@10:
-    // DaiZ-contracts/contract.py:77-78
+    // contract_2.py:69-71
     // # User posts a query with a DAISY token payment
+    // # Stores the prompt in a per-query box; this box is deleted upon response
     // @arc4.abimethod
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     txn GroupIndex
@@ -108,12 +111,13 @@ main_post_query_route@10:
     intc_2 // axfer
     ==
     assert // transaction type is axfer
-    // DaiZ-contracts/contract.py:77-78
+    // contract_2.py:69-71
     // # User posts a query with a DAISY token payment
+    // # Stores the prompt in a per-query box; this box is deleted upon response
     // @arc4.abimethod
     callsub post_query
     itob
-    bytec 6 // 0x151f7c75
+    bytec 5 // 0x151f7c75
     swap
     concat
     log
@@ -121,7 +125,7 @@ main_post_query_route@10:
     return
 
 main_withdraw_asset_route@9:
-    // DaiZ-contracts/contract.py:66-67
+    // contract_2.py:58-59
     // # Governor can withdraw DAISY tokens from contract
     // @arc4.abimethod
     txn OnCompletion
@@ -129,11 +133,11 @@ main_withdraw_asset_route@9:
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
-    // DaiZ-contracts/contract.py:66-67
+    // contract_2.py:58-59
     // # Governor can withdraw DAISY tokens from contract
     // @arc4.abimethod
     callsub withdraw_asset
@@ -141,7 +145,7 @@ main_withdraw_asset_route@9:
     return
 
 main_opt_in_to_token_route@8:
-    // DaiZ-contracts/contract.py:52-53
+    // contract_2.py:44-45
     // # Governor opts the contract into the DAISY token ASA
     // @arc4.abimethod
     txn OnCompletion
@@ -154,7 +158,7 @@ main_opt_in_to_token_route@8:
     return
 
 main_set_fee_route@7:
-    // DaiZ-contracts/contract.py:46-47
+    // contract_2.py:38-39
     // # Governor can change fee
     // @arc4.abimethod
     txn OnCompletion
@@ -162,11 +166,11 @@ main_set_fee_route@7:
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
-    // DaiZ-contracts/contract.py:46-47
+    // contract_2.py:38-39
     // # Governor can change fee
     // @arc4.abimethod
     callsub set_fee
@@ -174,7 +178,7 @@ main_set_fee_route@7:
     return
 
 main_set_governor_route@6:
-    // DaiZ-contracts/contract.py:40-41
+    // contract_2.py:32-33
     // # Governor can change governor
     // @arc4.abimethod
     txn OnCompletion
@@ -182,12 +186,12 @@ main_set_governor_route@6:
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // DaiZ-contracts/contract.py:40-41
+    // contract_2.py:32-33
     // # Governor can change governor
     // @arc4.abimethod
     callsub set_governor
@@ -195,7 +199,7 @@ main_set_governor_route@6:
     return
 
 main_create_route@5:
-    // DaiZ-contracts/contract.py:32-33
+    // contract_2.py:24-25
     // # Initialize contract with DAISY token ASA ID + posting fee
     // @arc4.abimethod(create="require")
     txn OnCompletion
@@ -204,14 +208,14 @@ main_create_route@5:
     txn ApplicationID
     !
     assert // can only call when creating
-    // DaiZ-contracts/contract.py:24
+    // contract_2.py:14
     // class DecentralizedAiContract(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Assets
     txna ApplicationArgs 2
     btoi
-    // DaiZ-contracts/contract.py:32-33
+    // contract_2.py:24-25
     // # Initialize contract with DAISY token ASA ID + posting fee
     // @arc4.abimethod(create="require")
     callsub create
@@ -219,29 +223,29 @@ main_create_route@5:
     return
 
 
-// contract.DecentralizedAiContract.create(token_id: uint64, fee: uint64) -> void:
+// contract_2.DecentralizedAiContract.create(token_id: uint64, fee: uint64) -> void:
 create:
-    // DaiZ-contracts/contract.py:32-34
+    // contract_2.py:24-26
     // # Initialize contract with DAISY token ASA ID + posting fee
     // @arc4.abimethod(create="require")
     // def create(self, token_id: Asset, fee: UInt64) -> None:
     proto 2 0
-    // DaiZ-contracts/contract.py:35
+    // contract_2.py:27
     // self.governor = Txn.sender
     bytec_0 // "governor"
     txn Sender
     app_global_put
-    // DaiZ-contracts/contract.py:36
+    // contract_2.py:28
     // self.token = token_id
     bytec_1 // "token"
     frame_dig -2
     app_global_put
-    // DaiZ-contracts/contract.py:37
+    // contract_2.py:29
     // self.query_fee = fee
     bytec_2 // "query_fee"
     frame_dig -1
     app_global_put
-    // DaiZ-contracts/contract.py:38
+    // contract_2.py:30
     // self.next_query_id = UInt64(1)
     bytec_3 // "next_query_id"
     intc_1 // 1
@@ -249,14 +253,14 @@ create:
     retsub
 
 
-// contract.DecentralizedAiContract.set_governor(new_governor: bytes) -> void:
+// contract_2.DecentralizedAiContract.set_governor(new_governor: bytes) -> void:
 set_governor:
-    // DaiZ-contracts/contract.py:40-42
+    // contract_2.py:32-34
     // # Governor can change governor
     // @arc4.abimethod
     // def set_governor(self, new_governor: Account) -> None:
     proto 1 0
-    // DaiZ-contracts/contract.py:43
+    // contract_2.py:35
     // assert Txn.sender == self.governor, "Only governor can change governor"
     txn Sender
     intc_0 // 0
@@ -265,7 +269,7 @@ set_governor:
     assert // check self.governor exists
     ==
     assert // Only governor can change governor
-    // DaiZ-contracts/contract.py:44
+    // contract_2.py:36
     // self.governor = new_governor
     bytec_0 // "governor"
     frame_dig -1
@@ -273,14 +277,14 @@ set_governor:
     retsub
 
 
-// contract.DecentralizedAiContract.set_fee(new_fee: uint64) -> void:
+// contract_2.DecentralizedAiContract.set_fee(new_fee: uint64) -> void:
 set_fee:
-    // DaiZ-contracts/contract.py:46-48
+    // contract_2.py:38-40
     // # Governor can change fee
     // @arc4.abimethod
     // def set_fee(self, new_fee: UInt64) -> None:
     proto 1 0
-    // DaiZ-contracts/contract.py:49
+    // contract_2.py:41
     // assert Txn.sender == self.governor, "Only governor can set fee"
     txn Sender
     intc_0 // 0
@@ -289,7 +293,7 @@ set_fee:
     assert // check self.governor exists
     ==
     assert // Only governor can set fee
-    // DaiZ-contracts/contract.py:50
+    // contract_2.py:42
     // self.query_fee = new_fee
     bytec_2 // "query_fee"
     frame_dig -1
@@ -297,9 +301,9 @@ set_fee:
     retsub
 
 
-// contract.DecentralizedAiContract.opt_in_to_token() -> void:
+// contract_2.DecentralizedAiContract.opt_in_to_token() -> void:
 opt_in_to_token:
-    // DaiZ-contracts/contract.py:59
+    // contract_2.py:51
     // assert Txn.sender == self.governor, "Only governor can opt-in"
     txn Sender
     intc_0 // 0
@@ -308,35 +312,35 @@ opt_in_to_token:
     assert // check self.governor exists
     ==
     assert // Only governor can opt-in
-    // DaiZ-contracts/contract.py:60-64
+    // contract_2.py:52-56
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=UInt64(0),                          # opt-in requires 0 transfer
     //     asset_receiver=Global.current_application_address,
     // ).submit()
     itxn_begin
-    // DaiZ-contracts/contract.py:61
+    // contract_2.py:53
     // xfer_asset=self.token,
     intc_0 // 0
     bytec_1 // "token"
     app_global_get_ex
     assert // check self.token exists
-    // DaiZ-contracts/contract.py:63
+    // contract_2.py:55
     // asset_receiver=Global.current_application_address,
     global CurrentApplicationAddress
     itxn_field AssetReceiver
-    // DaiZ-contracts/contract.py:62
+    // contract_2.py:54
     // asset_amount=UInt64(0),                          # opt-in requires 0 transfer
     intc_0 // 0
     itxn_field AssetAmount
     itxn_field XferAsset
-    // DaiZ-contracts/contract.py:60
+    // contract_2.py:52
     // itxn.AssetTransfer(
     intc_2 // axfer
     itxn_field TypeEnum
     intc_0 // 0
     itxn_field Fee
-    // DaiZ-contracts/contract.py:60-64
+    // contract_2.py:52-56
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=UInt64(0),                          # opt-in requires 0 transfer
@@ -346,14 +350,14 @@ opt_in_to_token:
     retsub
 
 
-// contract.DecentralizedAiContract.withdraw_asset(amount: uint64) -> void:
+// contract_2.DecentralizedAiContract.withdraw_asset(amount: uint64) -> void:
 withdraw_asset:
-    // DaiZ-contracts/contract.py:66-68
+    // contract_2.py:58-60
     // # Governor can withdraw DAISY tokens from contract
     // @arc4.abimethod
     // def withdraw_asset(self, amount: UInt64) -> None:
     proto 1 0
-    // DaiZ-contracts/contract.py:69
+    // contract_2.py:61
     // assert Txn.sender == self.governor, "Only governor can withdraw"
     txn Sender
     intc_0 // 0
@@ -364,7 +368,7 @@ withdraw_asset:
     dig 1
     ==
     assert // Only governor can withdraw
-    // DaiZ-contracts/contract.py:70-75
+    // contract_2.py:62-67
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=amount,
@@ -372,7 +376,7 @@ withdraw_asset:
     //     fee=0,
     // ).submit()
     itxn_begin
-    // DaiZ-contracts/contract.py:71
+    // contract_2.py:63
     // xfer_asset=self.token,
     intc_0 // 0
     bytec_1 // "token"
@@ -383,15 +387,15 @@ withdraw_asset:
     frame_dig -1
     itxn_field AssetAmount
     itxn_field XferAsset
-    // DaiZ-contracts/contract.py:70
+    // contract_2.py:62
     // itxn.AssetTransfer(
     intc_2 // axfer
     itxn_field TypeEnum
-    // DaiZ-contracts/contract.py:74
+    // contract_2.py:66
     // fee=0,
     intc_0 // 0
     itxn_field Fee
-    // DaiZ-contracts/contract.py:70-75
+    // contract_2.py:62-67
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=amount,
@@ -402,14 +406,15 @@ withdraw_asset:
     retsub
 
 
-// contract.DecentralizedAiContract.post_query(query_text: bytes, payment: uint64) -> uint64:
+// contract_2.DecentralizedAiContract.post_query(query_text: bytes, payment: uint64) -> uint64:
 post_query:
-    // DaiZ-contracts/contract.py:77-79
+    // contract_2.py:69-72
     // # User posts a query with a DAISY token payment
+    // # Stores the prompt in a per-query box; this box is deleted upon response
     // @arc4.abimethod
     // def post_query(self, query_text: arc4.String, payment: gtxn.AssetTransferTransaction) -> UInt64:
     proto 2 1
-    // DaiZ-contracts/contract.py:80-81
+    // contract_2.py:73-74
     // # Validate payment
     // assert payment.xfer_asset == self.token, "Wrong token"
     frame_dig -1
@@ -420,14 +425,14 @@ post_query:
     assert // check self.token exists
     ==
     assert // Wrong token
-    // DaiZ-contracts/contract.py:82
+    // contract_2.py:75
     // assert payment.asset_receiver == Global.current_application_address, "Payment must go to contract"
     frame_dig -1
     gtxns AssetReceiver
     global CurrentApplicationAddress
     ==
     assert // Payment must go to contract
-    // DaiZ-contracts/contract.py:83
+    // contract_2.py:76
     // assert payment.asset_amount == self.query_fee, "Wrong fee amount"
     frame_dig -1
     gtxns AssetAmount
@@ -437,85 +442,20 @@ post_query:
     assert // check self.query_fee exists
     ==
     assert // Wrong fee amount
-    // DaiZ-contracts/contract.py:84
+    // contract_2.py:77
     // assert payment.sender == Txn.sender, "Payment must be from caller"
     frame_dig -1
     gtxns Sender
     txn Sender
     ==
     assert // Payment must be from caller
-    // DaiZ-contracts/contract.py:86
-    // query_id = self.next_query_id
+    // contract_2.py:79
+    // qid = self.next_query_id
     intc_0 // 0
     bytec_3 // "next_query_id"
     app_global_get_ex
     assert // check self.next_query_id exists
-    // DaiZ-contracts/contract.py:91
-    // provider=arc4.Address(Global.zero_address),
-    global ZeroAddress
-    // DaiZ-contracts/contract.py:89
-    // submitter=arc4.Address(Txn.sender.bytes),
-    txn Sender
-    // DaiZ-contracts/contract.py:88-94
-    // new_query = Query(
-    //     submitter=arc4.Address(Txn.sender.bytes),
-    //     query_text=query_text,
-    //     provider=arc4.Address(Global.zero_address),
-    //     response_text=arc4.String(""),
-    //     is_answered=arc4.Bool(False),
-    // )
-    pushbytes 0x0045
-    concat
-    frame_dig -2
-    len
-    pushint 69 // 69
-    +
-    swap
-    uncover 2
-    concat
-    swap
-    itob
-    extract 6 2
-    concat
-    // DaiZ-contracts/contract.py:93
-    // is_answered=arc4.Bool(False),
-    bytec 4 // 0x00
-    // DaiZ-contracts/contract.py:88-94
-    // new_query = Query(
-    //     submitter=arc4.Address(Txn.sender.bytes),
-    //     query_text=query_text,
-    //     provider=arc4.Address(Global.zero_address),
-    //     response_text=arc4.String(""),
-    //     is_answered=arc4.Bool(False),
-    // )
-    concat
-    frame_dig -2
-    concat
-    // DaiZ-contracts/contract.py:92
-    // response_text=arc4.String(""),
-    pushbytes 0x0000
-    // DaiZ-contracts/contract.py:88-94
-    // new_query = Query(
-    //     submitter=arc4.Address(Txn.sender.bytes),
-    //     query_text=query_text,
-    //     provider=arc4.Address(Global.zero_address),
-    //     response_text=arc4.String(""),
-    //     is_answered=arc4.Bool(False),
-    // )
-    concat
-    // DaiZ-contracts/contract.py:96
-    // self.queries[query_id] = new_query.copy()
-    dig 1
-    itob
-    bytec 5 // "Q"
-    swap
-    concat
-    dup
-    box_del
-    pop
-    swap
-    box_put
-    // DaiZ-contracts/contract.py:97
+    // contract_2.py:80
     // self.next_query_id += UInt64(1)
     dup
     intc_1 // 1
@@ -523,67 +463,46 @@ post_query:
     bytec_3 // "next_query_id"
     swap
     app_global_put
-    // DaiZ-contracts/contract.py:99
-    // return query_id
+    // contract_2.py:82-83
+    // # Store prompt in a per-query box (ephemeral)
+    // self.queries[qid] = query_text
+    dup
+    itob
+    bytec 4 // "Q"
+    swap
+    concat
+    dup
+    box_del
+    pop
+    frame_dig -2
+    box_put
+    // contract_2.py:85
+    // return qid
     retsub
 
 
-// contract.DecentralizedAiContract.submit_response(query_id: uint64, response_text: bytes) -> void:
+// contract_2.DecentralizedAiContract.submit_response(query_id: uint64, response_ref: bytes) -> void:
 submit_response:
-    // DaiZ-contracts/contract.py:101-103
+    // contract_2.py:87-90
     // # Provider submits a response and gets rewarded in DAISY
+    // # Reads (guards on) the prompt box and deletes it immediately to reclaim MBR
     // @arc4.abimethod
-    // def submit_response(self, query_id: UInt64, response_text: arc4.String) -> None:
+    // def submit_response(self, query_id: UInt64, response_ref: arc4.String) -> None:
     proto 2 0
-    // DaiZ-contracts/contract.py:104
-    // query = self.queries[query_id].copy()
+    // contract_2.py:91-92
+    // # Guard: ensure the prompt box exists; will fail if missing (prevents double/invalid responses)
+    // _prompt = self.queries[query_id]
     frame_dig -2
     itob
-    bytec 5 // "Q"
+    bytec 4 // "Q"
     swap
     concat
     dup
     box_get
+    bury 1
     assert // check self.queries entry exists
-    // DaiZ-contracts/contract.py:105
-    // assert query.is_answered == arc4.Bool(False), "Already answered"
-    dup
-    intc_3 // 544
-    getbit
-    bytec 4 // 0x00
-    intc_0 // 0
-    uncover 2
-    setbit
-    bytec 4 // 0x00
-    ==
-    assert // Already answered
-    // DaiZ-contracts/contract.py:107
-    // query.provider = arc4.Address(Txn.sender.bytes)
-    txn Sender
-    replace2 34
-    // DaiZ-contracts/contract.py:108
-    // query.response_text = response_text
-    dup
-    pushint 66 // 66
-    extract_uint16
-    intc_0 // 0
-    swap
-    extract3
-    frame_dig -1
-    concat
-    // DaiZ-contracts/contract.py:109
-    // query.is_answered = arc4.Bool(True)
-    intc_3 // 544
-    intc_1 // 1
-    setbit
-    // DaiZ-contracts/contract.py:110
-    // self.queries[query_id] = query.copy()
-    dig 1
-    box_del
-    pop
-    box_put
-    // DaiZ-contracts/contract.py:112-118
-    // # Pay provider in DAISY
+    // contract_2.py:94-100
+    // # Pay provider in DAISY (inner xfer). The outer call should cover inner fees.
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=self.query_fee,
@@ -591,35 +510,35 @@ submit_response:
     //     fee=0,
     // ).submit()
     itxn_begin
-    // DaiZ-contracts/contract.py:114
+    // contract_2.py:96
     // xfer_asset=self.token,
     intc_0 // 0
     bytec_1 // "token"
     app_global_get_ex
     assert // check self.token exists
-    // DaiZ-contracts/contract.py:115
+    // contract_2.py:97
     // asset_amount=self.query_fee,
     intc_0 // 0
     bytec_2 // "query_fee"
     app_global_get_ex
     assert // check self.query_fee exists
-    // DaiZ-contracts/contract.py:116
+    // contract_2.py:98
     // asset_receiver=Txn.sender,
     txn Sender
     itxn_field AssetReceiver
     itxn_field AssetAmount
     itxn_field XferAsset
-    // DaiZ-contracts/contract.py:112-113
-    // # Pay provider in DAISY
+    // contract_2.py:94-95
+    // # Pay provider in DAISY (inner xfer). The outer call should cover inner fees.
     // itxn.AssetTransfer(
     intc_2 // axfer
     itxn_field TypeEnum
-    // DaiZ-contracts/contract.py:117
+    // contract_2.py:99
     // fee=0,
     intc_0 // 0
     itxn_field Fee
-    // DaiZ-contracts/contract.py:112-118
-    // # Pay provider in DAISY
+    // contract_2.py:94-100
+    // # Pay provider in DAISY (inner xfer). The outer call should cover inner fees.
     // itxn.AssetTransfer(
     //     xfer_asset=self.token,
     //     asset_amount=self.query_fee,
@@ -627,21 +546,26 @@ submit_response:
     //     fee=0,
     // ).submit()
     itxn_submit
+    // contract_2.py:102-103
+    // # Delete the per-query prompt box to immediately reclaim MBR
+    // del self.queries[query_id]
+    box_del
+    pop
     retsub
 
 
-// contract.DecentralizedAiContract.get_query(query_id: uint64) -> bytes:
-get_query:
-    // DaiZ-contracts/contract.py:120-122
-    // # Read-only method: returns a query by ID
+// contract_2.DecentralizedAiContract.read_prompt(query_id: uint64) -> bytes:
+read_prompt:
+    // contract_2.py:107-109
+    // # Read-only method: returns the prompt for a given query id (for providers to fetch)
     // @arc4.abimethod(readonly=True)
-    // def get_query(self, query_id: UInt64) -> Query:
+    // def read_prompt(self, query_id: UInt64) -> arc4.String:
     proto 1 1
-    // DaiZ-contracts/contract.py:123
+    // contract_2.py:110
     // return self.queries[query_id]
     frame_dig -1
     itob
-    bytec 5 // "Q"
+    bytec 4 // "Q"
     swap
     concat
     box_get

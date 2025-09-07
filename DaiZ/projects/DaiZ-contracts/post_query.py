@@ -3,7 +3,6 @@ import os
 import sys
 import logging
 from typing import Optional
-
 from algosdk import transaction
 from algosdk.mnemonic import to_private_key
 from algosdk.account import address_from_private_key
@@ -12,13 +11,10 @@ from algosdk.atomic_transaction_composer import AccountTransactionSigner, Transa
 from algokit_utils import AlgorandClient, SendParams, CommonAppCallParams
 from client import DecentralizedAiContractClient  # generated client
 from dotenv import load_dotenv
-
-# Load variables from .env file into process environment
 load_dotenv()
-
+import os; print("[DEBUG] PORT:", os.getenv("PORT"))
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("post_query_manual")
-
 
 def _client_for_env() -> AlgorandClient:
     return AlgorandClient.from_environment()
@@ -60,15 +56,14 @@ def main(query_text):
     # if len(sys.argv) < 2:
     #     print('Usage: python post_query.py "your question here"')
     #     sys.exit(1)
-    # query_text = sys.argv[1]
-
+    print("APP_ID: ", os.environ.get("APP_ID"))
     APP_ID = os.environ.get("APP_ID")
     USER_MNEMONIC = os.environ.get("USER_MNEMONIC")
     if not APP_ID or not USER_MNEMONIC:
         print("Set env first:")
         print("  export APP_ID=<deployed app id>")
         print('  export USER_MNEMONIC="your 25-word mnemonic (payer of DAISY fee)"')
-        sys.exit(1)
+        # sys.exit(1)
 
     app_id = int(APP_ID)
     sk = to_private_key(USER_MNEMONIC)
@@ -117,9 +112,10 @@ def main(query_text):
     )
 
     print("✅ Posted query")
-    print("   confirmed round:", res.confirmed_round)
     print("   tx id:", res.tx_id)
+    info = transaction.wait_for_confirmation(algorand.client.algod, res.tx_id, 5)
+    print("   confirmed round:", info.get("confirmed-round") or info.get("confirmedRound"))
 
 
 if __name__ == "__main__":
-    main()
+    main("how is the weather")
