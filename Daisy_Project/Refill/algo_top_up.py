@@ -37,7 +37,7 @@ def main():
     stx = pay.sign(sk)
     txid = client.send_transaction(stx)
     transaction.wait_for_confirmation(client, txid, 4)
-    print(f"✅ Funded {USER_ADDRESS} with {AMOUNT_ALGO} ALGO | txid {txid}")
+    print(f"Funded {USER_ADDRESS} with {AMOUNT_ALGO} ALGO | txid {txid}")
 
 if __name__ == "__main__":
     main()
