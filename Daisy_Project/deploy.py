@@ -15,7 +15,6 @@ from algokit_utils.transactions import (
     PaymentParams,
 )
 
-# ---- generated client; DO NOT modify client.py ----
 import client as client_mod
 
 logging.basicConfig(level=logging.INFO)

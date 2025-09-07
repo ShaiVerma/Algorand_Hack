@@ -14,6 +14,7 @@ from algokit_utils import AlgorandClient, SendParams, CommonAppCallParams, AlgoA
 
 # Generated client (do not modify)
 from client import DecentralizedAiContractClient, Query
+from prompt import get_query_via_prompt, submit_response_via_prompt
 
 # ------------ Config ------------
 from dotenv import load_dotenv
@@ -124,7 +125,7 @@ def main():
             # Handle any new query ids since last loop
             for qid in range(last_processed + 1, next_qid):
                 # Read stored query (readonly ABI)
-                result = app.send.get_query(args=(qid,))
+                result = type("Res", (), {"abi_return": get_query_via_prompt(app, qid)})
                 query: Optional[Query] = result.abi_return  # dataclass-like or None
 
                 if query is None:
@@ -152,7 +153,7 @@ def main():
                 )
 
                 log.info("Submitting response for query %s ...", qid)
-                app.send.submit_response(args=(qid, ai_answer), params=method_params, send_params=send_params)
+                submit_response_via_prompt(algorand, app, qid, ai_answer)
                 log.info("Submitted response for query %s. If your provider account has opted into the DAISY ASA, "
                          "you should now receive the reward.", qid)
                 
@@ -167,3 +168,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
