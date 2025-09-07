@@ -1,0 +1,2502 @@
+{
+  "version": 3,
+  "sources": [
+    "contract_2.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAeQ;AAAgB;;AAAhB;AACA;AAAa;AAAb;AACA;AAAiB;AAAjB;AACA;AAAqB;AAArB;AALR;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;AAAA;;AA8FK;;AAAA;AAAA;AAAA;;AAAA;AA9FL;;;AAAA;AA8FK;;;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAnBA;;AAAA;AAAA;AAAA;;AAAA;AA3EL;;;AAAA;AAAA;;;AA2EK;;;AAAA;;AAlBA;;AAAA;AAAA;AAAA;;AAAA;AAzDL;;;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAyDK;;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;;AAZA;;AAAA;AAAA;AAAA;;AAAA;AA7CL;;;AAAA;AA6CK;;;AAAA;;AAdA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAzBL;;;AAAA;AAyBK;;;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAnBL;;;AAAA;AAAA;;AAmBK;;;AAAA;;AARA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAXL;;;AAAA;AAAA;;AAAA;;;AAAA;AAWK;;;AAAA;;AAAL;;;AAEQ;AAAgB;;AAAhB;AACA;AAAA;;AAAA;AACA;AAAA;;AAAA;AACA;AAAqB;AAArB;;AAGR;;;AAEe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AACA;AAAA;;AAAA;;AAGR;;;AAEe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AACA;AAAA;;AAAA;;AASO;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAP;AACA;AACe;AAAA;AAAA;AAAA;AAEI;;;;AADF;;;;;AAFjB;;;AAAA;;;AAAA;;AAOR;;;AAEe;;AAAc;AAAA;AAAA;AAAA;AAAd;AAAA;;AAAA;AAAP;AACA;AACe;AAAA;AAAA;AAAA;;;;;;;;;;AADf;;;AAIQ;;;AAJR;;AASR;;;AAGe;;AAAA;;AAAsB;AAAA;AAAA;AAAA;AAAtB;AAAP;AACO;;AAAA;;AAA0B;;AAA1B;AAAP;AACO;;AAAA;;AAAwB;AAAA;AAAA;AAAA;AAAxB;AAAP;AACO;;AAAA;;AAAkB;;AAAlB;AAAP;AAEM;AAAA;AAAA;AAAA;AACN;AAAsB;AAAtB;AAAA;AAAA;AAAA;AAGa;AAAA;AAAb;;AAAA;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAEA;AAIR;;;AAG+B;;AAAA;AAAb;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAGV;AACe;AAAA;AAAA;AAAA;AACE;AAAA;AAAA;AAAA;AACE;;;;;;;;AAHnB;;;AAIQ;;;AAJR;AAQA;;;AAKR;;;AAE4B;;AAAA;AAAb;;AAAA;AAAA;AAAA;AAAA;AAAP",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "contract_2.DecentralizedAiContract.__algopy_entrypoint_with_init",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1 4"
+    },
+    "6": {
+      "op": "bytecblock \"governor\" \"token\" \"query_fee\" \"next_query_id\" \"Q\" 0x151f7c75"
+    },
+    "54": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "56": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "59": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\""
+      ],
+      "stack_out": [
+        "\"governor\""
+      ]
+    },
+    "60": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "\"governor\"",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "\"governor\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "62": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "63": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\""
+      ],
+      "stack_out": [
+        "\"token\""
+      ]
+    },
+    "64": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"token\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"token\"",
+        "0"
+      ]
+    },
+    "65": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "66": {
+      "op": "bytec_2 // \"query_fee\"",
+      "defined_out": [
+        "\"query_fee\""
+      ],
+      "stack_out": [
+        "\"query_fee\""
+      ]
+    },
+    "67": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "\"query_fee\"",
+        "0"
+      ]
+    },
+    "68": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "69": {
+      "op": "bytec_3 // \"next_query_id\"",
+      "defined_out": [
+        "\"next_query_id\""
+      ],
+      "stack_out": [
+        "\"next_query_id\""
+      ]
+    },
+    "70": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "\"next_query_id\"",
+        "1"
+      ],
+      "stack_out": [
+        "\"next_query_id\"",
+        "1"
+      ]
+    },
+    "71": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "72": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "tmp%0#2"
+      ]
+    },
+    "74": {
+      "op": "bz main_after_if_else@13",
+      "stack_out": []
+    },
+    "77": {
+      "op": "pushbytess 0x6eb260b3 0x08a956f7 0xfc4b88b7 0x3e2f2e38 0x1050b450 0xcf5bd9c5 0x3c30605b 0x215d4563 // method \"create(asset,uint64)void\", method \"set_governor(account)void\", method \"set_fee(uint64)void\", method \"opt_in_to_token()void\", method \"withdraw_asset(uint64)void\", method \"post_query(string,axfer)uint64\", method \"submit_response(uint64,string)void\", method \"read_prompt(uint64)string\"",
+      "defined_out": [
+        "Method(create(asset,uint64)void)",
+        "Method(opt_in_to_token()void)",
+        "Method(post_query(string,axfer)uint64)",
+        "Method(read_prompt(uint64)string)",
+        "Method(set_fee(uint64)void)",
+        "Method(set_governor(account)void)",
+        "Method(submit_response(uint64,string)void)",
+        "Method(withdraw_asset(uint64)void)"
+      ],
+      "stack_out": [
+        "Method(create(asset,uint64)void)",
+        "Method(set_governor(account)void)",
+        "Method(set_fee(uint64)void)",
+        "Method(opt_in_to_token()void)",
+        "Method(withdraw_asset(uint64)void)",
+        "Method(post_query(string,axfer)uint64)",
+        "Method(submit_response(uint64,string)void)",
+        "Method(read_prompt(uint64)string)"
+      ]
+    },
+    "119": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(create(asset,uint64)void)",
+        "Method(opt_in_to_token()void)",
+        "Method(post_query(string,axfer)uint64)",
+        "Method(read_prompt(uint64)string)",
+        "Method(set_fee(uint64)void)",
+        "Method(set_governor(account)void)",
+        "Method(submit_response(uint64,string)void)",
+        "Method(withdraw_asset(uint64)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(create(asset,uint64)void)",
+        "Method(set_governor(account)void)",
+        "Method(set_fee(uint64)void)",
+        "Method(opt_in_to_token()void)",
+        "Method(withdraw_asset(uint64)void)",
+        "Method(post_query(string,axfer)uint64)",
+        "Method(submit_response(uint64,string)void)",
+        "Method(read_prompt(uint64)string)",
+        "tmp%2#0"
+      ]
+    },
+    "122": {
+      "op": "match main_create_route@5 main_set_governor_route@6 main_set_fee_route@7 main_opt_in_to_token_route@8 main_withdraw_asset_route@9 main_post_query_route@10 main_submit_response_route@11 main_read_prompt_route@12",
+      "stack_out": []
+    },
+    "140": {
+      "block": "main_after_if_else@13",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "141": {
+      "op": "return",
+      "stack_out": []
+    },
+    "142": {
+      "block": "main_read_prompt_route@12",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%43#0"
+      ],
+      "stack_out": [
+        "tmp%43#0"
+      ]
+    },
+    "144": {
+      "op": "!",
+      "defined_out": [
+        "tmp%44#0"
+      ],
+      "stack_out": [
+        "tmp%44#0"
+      ]
+    },
+    "145": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "146": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%45#0"
+      ],
+      "stack_out": [
+        "tmp%45#0"
+      ]
+    },
+    "148": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "149": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%4#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%4#0"
+      ]
+    },
+    "152": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%47#0"
+      ],
+      "stack_out": [
+        "tmp%47#0"
+      ]
+    },
+    "153": {
+      "callsub": "contract_2.DecentralizedAiContract.read_prompt",
+      "op": "callsub read_prompt",
+      "defined_out": [
+        "tmp%48#0"
+      ],
+      "stack_out": [
+        "tmp%48#0"
+      ]
+    },
+    "156": {
+      "op": "bytec 5 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "tmp%48#0"
+      ],
+      "stack_out": [
+        "tmp%48#0",
+        "0x151f7c75"
+      ]
+    },
+    "158": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "tmp%48#0"
+      ]
+    },
+    "159": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%49#0"
+      ],
+      "stack_out": [
+        "tmp%49#0"
+      ]
+    },
+    "160": {
+      "op": "log",
+      "stack_out": []
+    },
+    "161": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "162": {
+      "op": "return",
+      "stack_out": []
+    },
+    "163": {
+      "block": "main_submit_response_route@11",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%37#0"
+      ],
+      "stack_out": [
+        "tmp%37#0"
+      ]
+    },
+    "165": {
+      "op": "!",
+      "defined_out": [
+        "tmp%38#0"
+      ],
+      "stack_out": [
+        "tmp%38#0"
+      ]
+    },
+    "166": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "167": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%39#0"
+      ],
+      "stack_out": [
+        "tmp%39#0"
+      ]
+    },
+    "169": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "170": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%3#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%3#0"
+      ]
+    },
+    "173": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%41#0"
+      ],
+      "stack_out": [
+        "tmp%41#0"
+      ]
+    },
+    "174": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%41#0",
+        "tmp%42#0"
+      ],
+      "stack_out": [
+        "tmp%41#0",
+        "tmp%42#0"
+      ]
+    },
+    "177": {
+      "callsub": "contract_2.DecentralizedAiContract.submit_response",
+      "op": "callsub submit_response",
+      "stack_out": []
+    },
+    "180": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "181": {
+      "op": "return",
+      "stack_out": []
+    },
+    "182": {
+      "block": "main_post_query_route@10",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%30#0"
+      ]
+    },
+    "184": {
+      "op": "!",
+      "defined_out": [
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0"
+      ]
+    },
+    "185": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "186": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%32#0"
+      ]
+    },
+    "188": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "189": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0"
+      ]
+    },
+    "192": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%34#0",
+        "tmp%35#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "tmp%35#0"
+      ]
+    },
+    "194": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "tmp%34#0",
+        "tmp%35#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "tmp%35#0",
+        "1"
+      ]
+    },
+    "195": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "196": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)",
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)"
+      ]
+    },
+    "197": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "199": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "axfer"
+      ]
+    },
+    "200": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0",
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "201": {
+      "error": "transaction type is axfer",
+      "op": "assert // transaction type is axfer",
+      "stack_out": [
+        "tmp%34#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "202": {
+      "callsub": "contract_2.DecentralizedAiContract.post_query",
+      "op": "callsub post_query",
+      "defined_out": [
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0"
+      ]
+    },
+    "205": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0"
+      ]
+    },
+    "206": {
+      "op": "bytec 5 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "208": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ]
+    },
+    "209": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%36#0"
+      ],
+      "stack_out": [
+        "tmp%36#0"
+      ]
+    },
+    "210": {
+      "op": "log",
+      "stack_out": []
+    },
+    "211": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "212": {
+      "op": "return",
+      "stack_out": []
+    },
+    "213": {
+      "block": "main_withdraw_asset_route@9",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%25#0"
+      ]
+    },
+    "215": {
+      "op": "!",
+      "defined_out": [
+        "tmp%26#0"
+      ],
+      "stack_out": [
+        "tmp%26#0"
+      ]
+    },
+    "216": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "217": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%27#0"
+      ]
+    },
+    "219": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "220": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%2#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%2#0"
+      ]
+    },
+    "223": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%29#0"
+      ],
+      "stack_out": [
+        "tmp%29#0"
+      ]
+    },
+    "224": {
+      "callsub": "contract_2.DecentralizedAiContract.withdraw_asset",
+      "op": "callsub withdraw_asset",
+      "stack_out": []
+    },
+    "227": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "228": {
+      "op": "return",
+      "stack_out": []
+    },
+    "229": {
+      "block": "main_opt_in_to_token_route@8",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "231": {
+      "op": "!",
+      "defined_out": [
+        "tmp%22#0"
+      ],
+      "stack_out": [
+        "tmp%22#0"
+      ]
+    },
+    "232": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "233": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%23#0"
+      ],
+      "stack_out": [
+        "tmp%23#0"
+      ]
+    },
+    "235": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "236": {
+      "callsub": "contract_2.DecentralizedAiContract.opt_in_to_token",
+      "op": "callsub opt_in_to_token"
+    },
+    "239": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "240": {
+      "op": "return",
+      "stack_out": []
+    },
+    "241": {
+      "block": "main_set_fee_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%16#0"
+      ]
+    },
+    "243": {
+      "op": "!",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "244": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "245": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "247": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "248": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "251": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "252": {
+      "callsub": "contract_2.DecentralizedAiContract.set_fee",
+      "op": "callsub set_fee",
+      "stack_out": []
+    },
+    "255": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "256": {
+      "op": "return",
+      "stack_out": []
+    },
+    "257": {
+      "block": "main_set_governor_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "259": {
+      "op": "!",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "260": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "261": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%12#0"
+      ]
+    },
+    "263": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "264": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%1#0"
+      ]
+    },
+    "267": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "268": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "270": {
+      "callsub": "contract_2.DecentralizedAiContract.set_governor",
+      "op": "callsub set_governor",
+      "stack_out": []
+    },
+    "273": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "274": {
+      "op": "return",
+      "stack_out": []
+    },
+    "275": {
+      "block": "main_create_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "277": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "278": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "279": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "281": {
+      "op": "!",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "282": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "283": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "286": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "287": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "289": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "292": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "293": {
+      "callsub": "contract_2.DecentralizedAiContract.create",
+      "op": "callsub create",
+      "stack_out": []
+    },
+    "296": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "297": {
+      "op": "return",
+      "stack_out": []
+    },
+    "298": {
+      "subroutine": "contract_2.DecentralizedAiContract.create",
+      "params": {
+        "token_id#0": "uint64",
+        "fee#0": "uint64"
+      },
+      "block": "create",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "301": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\""
+      ],
+      "stack_out": [
+        "\"governor\""
+      ]
+    },
+    "302": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"governor\"",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "\"governor\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "304": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "305": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\""
+      ],
+      "stack_out": [
+        "\"token\""
+      ]
+    },
+    "306": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "\"token\"",
+        "token_id#0 (copy)"
+      ],
+      "stack_out": [
+        "\"token\"",
+        "token_id#0 (copy)"
+      ]
+    },
+    "308": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "309": {
+      "op": "bytec_2 // \"query_fee\"",
+      "defined_out": [
+        "\"query_fee\""
+      ],
+      "stack_out": [
+        "\"query_fee\""
+      ]
+    },
+    "310": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "\"query_fee\"",
+        "fee#0 (copy)"
+      ],
+      "stack_out": [
+        "\"query_fee\"",
+        "fee#0 (copy)"
+      ]
+    },
+    "312": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "313": {
+      "op": "bytec_3 // \"next_query_id\"",
+      "defined_out": [
+        "\"next_query_id\""
+      ],
+      "stack_out": [
+        "\"next_query_id\""
+      ]
+    },
+    "314": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "\"next_query_id\"",
+        "1"
+      ],
+      "stack_out": [
+        "\"next_query_id\"",
+        "1"
+      ]
+    },
+    "315": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "316": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "317": {
+      "subroutine": "contract_2.DecentralizedAiContract.set_governor",
+      "params": {
+        "new_governor#0": "bytes"
+      },
+      "block": "set_governor",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "320": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "322": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "323": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"governor\""
+      ]
+    },
+    "324": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "325": {
+      "error": "check self.governor exists",
+      "op": "assert // check self.governor exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "326": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "327": {
+      "error": "Only governor can change governor",
+      "op": "assert // Only governor can change governor",
+      "stack_out": []
+    },
+    "328": {
+      "op": "bytec_0 // \"governor\"",
+      "stack_out": [
+        "\"governor\""
+      ]
+    },
+    "329": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "\"governor\"",
+        "new_governor#0 (copy)"
+      ],
+      "stack_out": [
+        "\"governor\"",
+        "new_governor#0 (copy)"
+      ]
+    },
+    "331": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "332": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "333": {
+      "subroutine": "contract_2.DecentralizedAiContract.set_fee",
+      "params": {
+        "new_fee#0": "uint64"
+      },
+      "block": "set_fee",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "336": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "338": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "339": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"governor\""
+      ]
+    },
+    "340": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "341": {
+      "error": "check self.governor exists",
+      "op": "assert // check self.governor exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "342": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "343": {
+      "error": "Only governor can set fee",
+      "op": "assert // Only governor can set fee",
+      "stack_out": []
+    },
+    "344": {
+      "op": "bytec_2 // \"query_fee\"",
+      "defined_out": [
+        "\"query_fee\""
+      ],
+      "stack_out": [
+        "\"query_fee\""
+      ]
+    },
+    "345": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "\"query_fee\"",
+        "new_fee#0 (copy)"
+      ],
+      "stack_out": [
+        "\"query_fee\"",
+        "new_fee#0 (copy)"
+      ]
+    },
+    "347": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "348": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "349": {
+      "subroutine": "contract_2.DecentralizedAiContract.opt_in_to_token",
+      "params": {},
+      "block": "opt_in_to_token",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "351": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "352": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"governor\""
+      ]
+    },
+    "353": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "354": {
+      "error": "check self.governor exists",
+      "op": "assert // check self.governor exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "355": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "356": {
+      "error": "Only governor can opt-in",
+      "op": "assert // Only governor can opt-in",
+      "stack_out": []
+    },
+    "357": {
+      "op": "itxn_begin"
+    },
+    "358": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "359": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"token\""
+      ]
+    },
+    "360": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "361": {
+      "error": "check self.token exists",
+      "op": "assert // check self.token exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "362": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "364": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "366": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "367": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "369": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "371": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "372": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "374": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "375": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "377": {
+      "op": "itxn_submit"
+    },
+    "378": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "379": {
+      "subroutine": "contract_2.DecentralizedAiContract.withdraw_asset",
+      "params": {
+        "amount#0": "uint64"
+      },
+      "block": "withdraw_asset",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "382": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "384": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "385": {
+      "op": "bytec_0 // \"governor\"",
+      "defined_out": [
+        "\"governor\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"governor\""
+      ]
+    },
+    "386": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "387": {
+      "error": "check self.governor exists",
+      "op": "assert // check self.governor exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "388": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "389": {
+      "op": "dig 1",
+      "defined_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%0#0",
+        "maybe_value%0#0 (copy)"
+      ]
+    },
+    "391": {
+      "op": "==",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "392": {
+      "error": "Only governor can withdraw",
+      "op": "assert // Only governor can withdraw",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "393": {
+      "op": "itxn_begin"
+    },
+    "394": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%0#0",
+        "0"
+      ]
+    },
+    "395": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\"",
+        "0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0",
+        "\"token\""
+      ]
+    },
+    "396": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "397": {
+      "error": "check self.token exists",
+      "op": "assert // check self.token exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "398": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "399": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "401": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "amount#0 (copy)",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "amount#0 (copy)"
+      ]
+    },
+    "403": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "405": {
+      "op": "itxn_field XferAsset",
+      "stack_out": []
+    },
+    "407": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "408": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "410": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "411": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "413": {
+      "op": "itxn_submit"
+    },
+    "414": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "415": {
+      "subroutine": "contract_2.DecentralizedAiContract.post_query",
+      "params": {
+        "query_text#0": "bytes",
+        "payment#0": "uint64"
+      },
+      "block": "post_query",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "418": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "payment#0 (copy)"
+      ],
+      "stack_out": [
+        "payment#0 (copy)"
+      ]
+    },
+    "420": {
+      "op": "gtxns XferAsset",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "422": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "423": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"token\""
+      ]
+    },
+    "424": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "425": {
+      "error": "check self.token exists",
+      "op": "assert // check self.token exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "426": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "427": {
+      "error": "Wrong token",
+      "op": "assert // Wrong token",
+      "stack_out": []
+    },
+    "428": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "payment#0 (copy)"
+      ]
+    },
+    "430": {
+      "op": "gtxns AssetReceiver",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "432": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "tmp%3#0"
+      ]
+    },
+    "434": {
+      "op": "==",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "435": {
+      "error": "Payment must go to contract",
+      "op": "assert // Payment must go to contract",
+      "stack_out": []
+    },
+    "436": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "payment#0 (copy)"
+      ]
+    },
+    "438": {
+      "op": "gtxns AssetAmount",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "440": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%5#0",
+        "0"
+      ]
+    },
+    "441": {
+      "op": "bytec_2 // \"query_fee\"",
+      "defined_out": [
+        "\"query_fee\"",
+        "0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "0",
+        "\"query_fee\""
+      ]
+    },
+    "442": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "443": {
+      "error": "check self.query_fee exists",
+      "op": "assert // check self.query_fee exists",
+      "stack_out": [
+        "tmp%5#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "444": {
+      "op": "==",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "445": {
+      "error": "Wrong fee amount",
+      "op": "assert // Wrong fee amount",
+      "stack_out": []
+    },
+    "446": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "payment#0 (copy)"
+      ]
+    },
+    "448": {
+      "op": "gtxns Sender",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "450": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%7#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%7#0",
+        "tmp%8#0"
+      ]
+    },
+    "452": {
+      "op": "==",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "453": {
+      "error": "Payment must be from caller",
+      "op": "assert // Payment must be from caller",
+      "stack_out": []
+    },
+    "454": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "455": {
+      "op": "bytec_3 // \"next_query_id\"",
+      "defined_out": [
+        "\"next_query_id\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"next_query_id\""
+      ]
+    },
+    "456": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%2#0",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "457": {
+      "error": "check self.next_query_id exists",
+      "op": "assert // check self.next_query_id exists",
+      "stack_out": [
+        "qid#0"
+      ]
+    },
+    "458": {
+      "op": "dup",
+      "defined_out": [
+        "qid#0",
+        "qid#0 (copy)"
+      ],
+      "stack_out": [
+        "qid#0",
+        "qid#0 (copy)"
+      ]
+    },
+    "459": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "qid#0",
+        "qid#0 (copy)"
+      ],
+      "stack_out": [
+        "qid#0",
+        "qid#0 (copy)",
+        "1"
+      ]
+    },
+    "460": {
+      "op": "+",
+      "defined_out": [
+        "materialized_values%0#0",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "materialized_values%0#0"
+      ]
+    },
+    "461": {
+      "op": "bytec_3 // \"next_query_id\"",
+      "stack_out": [
+        "qid#0",
+        "materialized_values%0#0",
+        "\"next_query_id\""
+      ]
+    },
+    "462": {
+      "op": "swap",
+      "stack_out": [
+        "qid#0",
+        "\"next_query_id\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "463": {
+      "op": "app_global_put",
+      "stack_out": [
+        "qid#0"
+      ]
+    },
+    "464": {
+      "op": "dup",
+      "stack_out": [
+        "qid#0",
+        "qid#0 (copy)"
+      ]
+    },
+    "465": {
+      "op": "itob",
+      "defined_out": [
+        "encoded_value%0#0",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "encoded_value%0#0"
+      ]
+    },
+    "466": {
+      "op": "bytec 4 // \"Q\"",
+      "defined_out": [
+        "\"Q\"",
+        "encoded_value%0#0",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "encoded_value%0#0",
+        "\"Q\""
+      ]
+    },
+    "468": {
+      "op": "swap",
+      "stack_out": [
+        "qid#0",
+        "\"Q\"",
+        "encoded_value%0#0"
+      ]
+    },
+    "469": {
+      "op": "concat",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "470": {
+      "op": "dup",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "box_prefixed_key%0#0 (copy)",
+        "qid#0"
+      ],
+      "stack_out": [
+        "qid#0",
+        "box_prefixed_key%0#0",
+        "box_prefixed_key%0#0 (copy)"
+      ]
+    },
+    "471": {
+      "op": "box_del",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "qid#0",
+        "{box_del}"
+      ],
+      "stack_out": [
+        "qid#0",
+        "box_prefixed_key%0#0",
+        "{box_del}"
+      ]
+    },
+    "472": {
+      "op": "pop",
+      "stack_out": [
+        "qid#0",
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "473": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "qid#0",
+        "query_text#0 (copy)"
+      ],
+      "stack_out": [
+        "qid#0",
+        "box_prefixed_key%0#0",
+        "query_text#0 (copy)"
+      ]
+    },
+    "475": {
+      "op": "box_put",
+      "stack_out": [
+        "qid#0"
+      ]
+    },
+    "476": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "477": {
+      "subroutine": "contract_2.DecentralizedAiContract.submit_response",
+      "params": {
+        "query_id#0": "uint64",
+        "response_ref#0": "bytes"
+      },
+      "block": "submit_response",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "480": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "query_id#0 (copy)"
+      ],
+      "stack_out": [
+        "query_id#0 (copy)"
+      ]
+    },
+    "482": {
+      "op": "itob",
+      "defined_out": [
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0"
+      ]
+    },
+    "483": {
+      "op": "bytec 4 // \"Q\"",
+      "defined_out": [
+        "\"Q\"",
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0",
+        "\"Q\""
+      ]
+    },
+    "485": {
+      "op": "swap",
+      "stack_out": [
+        "\"Q\"",
+        "encoded_value%0#0"
+      ]
+    },
+    "486": {
+      "op": "concat",
+      "defined_out": [
+        "box_prefixed_key%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "487": {
+      "op": "dup",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "box_prefixed_key%0#0 (copy)"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "box_prefixed_key%0#0 (copy)"
+      ]
+    },
+    "488": {
+      "op": "box_get",
+      "defined_out": [
+        "_prompt#0",
+        "box_prefixed_key%0#0",
+        "maybe_exists%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "_prompt#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "489": {
+      "op": "bury 1",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "491": {
+      "error": "check self.queries entry exists",
+      "op": "assert // check self.queries entry exists",
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "492": {
+      "op": "itxn_begin"
+    },
+    "493": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "box_prefixed_key%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "0"
+      ]
+    },
+    "494": {
+      "op": "bytec_1 // \"token\"",
+      "defined_out": [
+        "\"token\"",
+        "0",
+        "box_prefixed_key%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "0",
+        "\"token\""
+      ]
+    },
+    "495": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "496": {
+      "error": "check self.token exists",
+      "op": "assert // check self.token exists",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "497": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "498": {
+      "op": "bytec_2 // \"query_fee\"",
+      "defined_out": [
+        "\"query_fee\"",
+        "0",
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "0",
+        "\"query_fee\""
+      ]
+    },
+    "499": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "maybe_exists%2#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "500": {
+      "error": "check self.query_fee exists",
+      "op": "assert // check self.query_fee exists",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "501": {
+      "op": "txn Sender",
+      "defined_out": [
+        "box_prefixed_key%0#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "inner_txn_params%0%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "503": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "505": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "507": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "509": {
+      "op": "intc_2 // axfer",
+      "defined_out": [
+        "axfer",
+        "box_prefixed_key%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "axfer"
+      ]
+    },
+    "510": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "512": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "box_prefixed_key%0#0",
+        "0"
+      ]
+    },
+    "513": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "515": {
+      "op": "itxn_submit"
+    },
+    "516": {
+      "op": "box_del",
+      "defined_out": [
+        "{box_del}"
+      ],
+      "stack_out": [
+        "{box_del}"
+      ]
+    },
+    "517": {
+      "op": "pop",
+      "stack_out": []
+    },
+    "518": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "519": {
+      "subroutine": "contract_2.DecentralizedAiContract.read_prompt",
+      "params": {
+        "query_id#0": "uint64"
+      },
+      "block": "read_prompt",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "522": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "query_id#0 (copy)"
+      ],
+      "stack_out": [
+        "query_id#0 (copy)"
+      ]
+    },
+    "524": {
+      "op": "itob",
+      "defined_out": [
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0"
+      ]
+    },
+    "525": {
+      "op": "bytec 4 // \"Q\"",
+      "defined_out": [
+        "\"Q\"",
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0",
+        "\"Q\""
+      ]
+    },
+    "527": {
+      "op": "swap",
+      "stack_out": [
+        "\"Q\"",
+        "encoded_value%0#0"
+      ]
+    },
+    "528": {
+      "op": "concat",
+      "defined_out": [
+        "box_prefixed_key%0#0"
+      ],
+      "stack_out": [
+        "box_prefixed_key%0#0"
+      ]
+    },
+    "529": {
+      "op": "box_get",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "530": {
+      "error": "check self.queries entry exists",
+      "op": "assert // check self.queries entry exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "531": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
