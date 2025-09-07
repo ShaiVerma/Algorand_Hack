@@ -85,7 +85,7 @@ def _gemini_answer(prompt_text: str) -> str:
     Get an answer from Gemini. Keep short to fit ABI arg limits if needed.
     """
     # Pick a model; flash = faster/cheaper, pro = stronger
-    model = "gemini-1.5-flash"
+    model = "gemini-2.5-flash"
     resp = _gemini.models.generate_content(
         model=model,
         contents=(
