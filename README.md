@@ -22,7 +22,6 @@ Today, most online activity â€” search, communication, and even creative work â€
 
 **DAISY** is a decentralized blockchain platform built on Algorand to counter these risks by:
 
-- Keeping queries and responses **on-chain**, where rules are transparent and auditable.
 - Using a **token-based economy** (DAISY ASA) to incentivize rerouting of search queries via proxy nodes.
 - Allowing anyone to run or verify an **indexer/validator** (backed by VRF and PPoS (future work)), ensuring no single entity controls knowledge access.
 - Giving users **true ownership** over their interactions, with cryptographic receipts for accountability.
