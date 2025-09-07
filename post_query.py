@@ -15,6 +15,10 @@ from client import DecentralizedAiContractClient  # generated client
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("post_query_manual")
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def _client_for_env() -> AlgorandClient:
     return AlgorandClient.from_environment()
@@ -58,7 +62,7 @@ def main():
         sys.exit(1)
     query_text = sys.argv[1]
 
-    APP_ID = os.environ.get("APP_ID")
+    APP_ID = os.environ.get("APP_ID_2")
     USER_MNEMONIC = os.environ.get("USER_MNEMONIC")
     if not APP_ID or not USER_MNEMONIC:
         print("Set env first:")
@@ -113,8 +117,9 @@ def main():
     )
 
     print("✅ Posted query")
-    print("   confirmed round:", res.confirmed_round)
     print("   tx id:", res.tx_id)
+    info = transaction.wait_for_confirmation(algorand.client.algod, res.tx_id, 5)
+    print("   confirmed round:", info.get("confirmed-round") or info.get("confirmedRound"))
 
 
 if __name__ == "__main__":

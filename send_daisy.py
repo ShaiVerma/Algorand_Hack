@@ -16,6 +16,9 @@ ALGOD_TOKEN = os.getenv("ALGOD_TOKEN", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 # AMOUNT            : how many DAISY to send (default 2000; DAISY has decimals=0)
 # FUND_ALGOS        : how many ALGOs to fund the user for fees (default 0.0)
 
+from dotenv import load_dotenv
+load_dotenv()
+
 def has_asset(acct_info: dict, asset_id: int) -> bool:
     for a in acct_info.get("assets", []):
         if a.get("asset-id") == asset_id:
@@ -30,7 +33,7 @@ def main():
     try:
         DEPLOYER_MNEMONIC = os.environ["DEPLOYER_MNEMONIC"]
         USER_MNEMONIC = os.environ["USER_MNEMONIC"]
-        TOKEN_ID = int(os.environ["TOKEN_ID"])
+        TOKEN_ID = int(os.environ["DAISY_TOKEN_ID"])
     except KeyError as e:
         missing = e.args[0]
         raise SystemExit(

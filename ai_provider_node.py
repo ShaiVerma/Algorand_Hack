@@ -8,6 +8,7 @@ from typing import Optional
 from algosdk.mnemonic import to_private_key
 from algosdk.account import address_from_private_key as get_address_from_private_key
 from algosdk.atomic_transaction_composer import AccountTransactionSigner
+from google import genai
 
 from algokit_utils import AlgorandClient, SendParams, CommonAppCallParams, AlgoAmount
 
@@ -15,12 +16,20 @@ from algokit_utils import AlgorandClient, SendParams, CommonAppCallParams, AlgoA
 from client import DecentralizedAiContractClient, Query
 
 # ------------ Config ------------
+from dotenv import load_dotenv
+load_dotenv()
+
 POLL_SECONDS = int(os.getenv("POLL_SECONDS", "6"))
 APP_ID_ENV = "APP_ID"               # required
 PROVIDER_MNEMONIC_ENV = "PROVIDER_MNEMONIC"  # required now to avoid version mismatches
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 log = logging.getLogger("ai_provider")
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise SystemExit("Set GEMINI_API_KEY in your environment or .env")
+_gemini = genai.Client(api_key=GEMINI_API_KEY)
 
 # ------------ Helpers ------------
 def _build_algorand_client() -> AlgorandClient:
@@ -71,15 +80,22 @@ def _maybe_log_token_and_fee(app: DecentralizedAiContractClient):
     except Exception as e:
         log.warning("Could not read global state: %s", e)
 
-def _produce_ai_answer(query_text: str) -> str:
-    # TODO: Replace with real AI inference if desired; keep short to fit ABI arg limits
-    canned = [
-        f"Answer to '{query_text}': verify with sources and keep it concise.",
-        f"My take on '{query_text}': decompose into steps and validate each.",
-        f"For '{query_text}', rely on minimal, sufficient facts and cite where possible."
-    ]
-    time.sleep(random.uniform(0.2, 0.8))  # simulate work
-    return random.choice(canned)
+def _gemini_answer(prompt_text: str) -> str:
+    """
+    Get an answer from Gemini. Keep short to fit ABI arg limits if needed.
+    """
+    # Pick a model; flash = faster/cheaper, pro = stronger
+    model = "gemini-1.5-flash"
+    resp = _gemini.models.generate_content(
+        model=model,
+        contents=(
+            "You are a concise assistant. "
+            "Answer briefly (<= 400 chars). If relevant, outline steps.\n\n"
+            f"User prompt:\n{prompt_text}"
+        ),
+    )
+    # Fallbacks in case API returns no text
+    return (resp.text or "").strip() or "No answer produced."
 
 # ------------ Main loop ------------
 def main():
@@ -124,7 +140,9 @@ def main():
                 log.info("New query %s from %s: %s", qid, query.submitter, query.query_text)
 
                 # Build answer
-                ai_answer = _produce_ai_answer(query.query_text)
+                prompt=query.query_text
+                ai_answer = _gemini_answer(prompt)
+                log.info("LLM Response:", ai_answer)
 
                 # Submit response. Ensure we cover inner-txn fees and resource budgeting.
                 method_params = CommonAppCallParams(max_fee=AlgoAmount.from_micro_algo(5_000))
@@ -137,6 +155,7 @@ def main():
                 app.send.submit_response(args=(qid, ai_answer), params=method_params, send_params=send_params)
                 log.info("Submitted response for query %s. If your provider account has opted into the DAISY ASA, "
                          "you should now receive the reward.", qid)
+                
 
                 last_processed = qid
 
