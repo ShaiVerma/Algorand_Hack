@@ -101,18 +101,15 @@ Cryptographic receipts (hash + signature) allow clients to verify answer provena
 5. Prompt using prompt.py to post queries and accept responses in a DB or directly (IFPS/Nillon DB to handle search contexts and chat continuity still in process.)
 6. 'algo_top_up.py' and 'daisy_top_up.py' allow refilling of algos and daisys for further testing into USER, and PROVIDER accounts. It can also be changed to reffill smart contract accounts by changing USER ADDRESS to the respective account.
 
+---
+
 ## Future Work
 Future work includes testing with multiple AI nodes on TestNet using algorithms such as VRF and PPoS to back it up.
 Highly secure DB infrastructure like IFPS or Nillon DB to also be integrated. This will allow log entries for Queries and Prompts storing their CID/Refs to these DBs eliminating the need for BoxMaps. This will keep a stable Minimum Balance Required(MBR) and make the solution highly scalable without a large amounts of funds being held.
 
 
 
----
 
-
-## 📄 License
-
-MIT — see `LICENSE` (or add one if not present).
 
 
 
