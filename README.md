@@ -39,7 +39,7 @@ a client library makes it easy to integrate with frontends or scripts.
 ## 🧱 Architecture Overview
 
 ```
-Client / Frontend (web)           Off-chain AI/Indexer (ai_node.py)
+Prompt.py / Frontend (web)           Off-chain AI/Indexer (ai_node.py)
 │                                 │
 │  ┌──────────────┐               │  ┌───────────────────────┐
 │  | client.py    |  RPC/REST     │  | ai_node.py            |
