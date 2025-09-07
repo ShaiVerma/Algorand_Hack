@@ -1,5 +1,5 @@
 # D.A.I.S.Y. 
-Decentralized Artificial Intelligence Search For You
+**D**ecentralized **A**rtificial **I**ntelligence **S**earch For **Y**ou
 
 Today, most online activity — search, communication, and even creative work — is handled by centralized platforms like Google, OpenAI, or Meta. While these companies offer powerful services, relying on them comes with serious **data privacy risks**:
 
