@@ -39,34 +39,34 @@ a client library makes it easy to integrate with frontends or scripts.
 ## 🧱 Architecture Overview
 
 ```
-Prompt.py / Frontend (web)           Off-chain AI/Indexer (ai_node.py)
-│                                 │
-│  ┌──────────────┐               │  ┌───────────────────────┐
-│  | client.py    |  RPC/REST     │  | ai_node.py            |
-│  | (helpers)    |──────────────▶│  | - watches app events  |
-│  └──────────────┘               │  | - answers queries     |
-│          │                      │  | - submits responses   |
-│          │                      │  └───────────────────────┘
-│          │ App Call / Query     │
-│          ▼                      │
-│  ┌───────────────────────────┐  │
-│  | Algorand ARC-4 App        │◀─┘  (escrow, deadlines, settlement)
-│  | (contract.py)             │
-│  └───────────────────────────┘
-│
-│  ┌───────────────────────────┐
-│  | Algorand ASA (DAISY token)|  (payments & staking)
-│  └───────────────────────────┘
-│
-└─ deploy.py (build & deploy artifacts; prints APP_ID, ASA_ID)
+Prompt.py / Frontend (web)           Off-chain node ai_node.py
+                                  │
+  ┌──────────────┐                │  ┌───────────────────────┐
+  | client.py    |                |    ai_node.py            |
+  | (helpers)    |                │  | - watches app events  |
+  └──────────────┘                │  | - answers queries     |
+          │                       │  | - submits responses   |
+          │                       │  └───────────────────────┘
+          │ App Call / Query      │
+          ▼                       │
+   ┌───────────────────────────┐  │
+   | Algorand ARC-4 App        │◀─┘  (escrow, deadlines, settlement)
+   | (contract.py)             │
+   └───────────────────────────┘
+
+   ┌───────────────────────────┐
+   | Algorand ASA (DAISY token)|  (payments & staking)
+   └───────────────────────────┘
+
+deploy.py (To deploy the contract on the algorand chain)
 ```
 
 **Flow**
 1. **User posts Query** (client/frontend → `postQuery`) with fee escrowed in DAISY.
 2. **AI/Indexer observes** `QueryCreated` event, retrieves data (on/off-chain), and composes an answer.
 3. **AI/Indexer submits Response** (`submitResponse`) attaching content hash, URI, and signature receipt.
-4. **User accepts** the best response (`acceptResponse`) → contract pays indexer in DAISY.
-5. **Timeout path** (`timeoutReclaim`) lets the user reclaim escrow if no acceptable response arrives in time.
+4. **User accepts**  response (`acceptResponse`) → contract pays indexer in DAISY.
+5. **Timeout path** (`timeoutReclaim`) lets the user reclaim escrow if no acceptable response arrives in time (to be implemented)
 
 Cryptographic receipts (hash + signature) allow clients to verify answer provenance; payloads stay off-chain (IPFS/HTTP) with on-chain hashes for integrity.
 
@@ -80,7 +80,6 @@ Cryptographic receipts (hash + signature) allow clients to verify answer provena
 - `ai_node.py` — Reference off-chain worker that watches events, generates answers (using `prompt.py`), and submits responses.
 - `prompt.py` — Prompt templates and helpers for AI retrieval/answering.
 
-> Original files are saved as `*.orig` backups after documentation injection.
 
 ---
 
@@ -97,20 +96,12 @@ Cryptographic receipts (hash + signature) allow clients to verify answer provena
 
 1. Start an Algorand LocalNet (Algokit or sandbox) and fund test accounts.
 2. Run `deploy.py` to deploy the ASA and contract; note **APP_ID** and **ASA_ID**.
-3. Configure the `client.py`/`ai_node.py` connection settings (algod URL, token, indexer URL).
+3. Configure the `ai_node.py` settings
 4. Start the AI node to listen for queries and submit answers.
-5. Use any minimal frontend or scripts that import `client.py` to post queries and accept responses.
+5. Prompt using prompt.py to post queries and accept responses in a DB or directly (IFPS/Nillon DB to handle search contexts and chat continuity still in process.)
 
 ---
 
-## 📝 Conventions Introduced by This Formatter
-
-This tool pass added:
-- **Module docstrings** describing the role of each file in the system.
-- **Function/class docstrings** with parameter stubs to encourage documentation culture.
-- Non-destructive edits (backups in `*.orig`).
-
----
 
 ## 📄 License
 
